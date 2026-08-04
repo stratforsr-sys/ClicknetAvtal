@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Internt verktyg för att skapa anställningsavtal. Allt körs lokalt i webbläsaren.">
+<meta name="theme-color" content="#19C0A6">
+<title>Avtalsgenerator – ClickneT</title>
+<link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brandmark">
+    <svg viewBox="0 0 320 84" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClickneT">
+      <circle cx="42" cy="42" r="27" fill="none" stroke="#19C0A6" stroke-width="7" stroke-linecap="round"
+              stroke-dasharray="124 46" transform="rotate(118 42 42)"/>
+      <path d="M31 17 L31 65 L42.5 54 L50.5 71 L58.5 67 L50.5 50.5 L65 49 Z" fill="#19C0A6"/>
+      <text x="86" y="61" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="400" fill="#C6CACC" letter-spacing="-1">Click</text>
+      <text x="211" y="61" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="400" fill="#19C0A6" letter-spacing="-1">neT</text>
+    </svg>
+    <div class="sep"></div>
+    <div class="app-name">Avtalsgenerator</div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn ghost small" id="btnNew">Nytt avtal</button>
+  <button class="btn ghost small" id="btnSave">Spara</button>
+  <button class="btn ghost small" id="btnExport">Exportera JSON</button>
+  <button class="btn primary" id="btnPdf">Skapa PDF</button>
+</div>
+
+<div class="layout">
+  <!-- ============ FORM ============ -->
+  <div class="formcol">
+
+    <div class="notice">
+      <strong>Kontrollera bolagsuppgifterna innan första användningen.</strong> På clicknet.se anges
+      &rdquo;En del av ABL Konsult &amp; Invest AB&rdquo;, medan uppgiften jag fått är &rdquo;ABL Invest AB&rdquo;.
+      Fälten nedan är redigerbara — fyll i exakt det registrerade firmanamnet enligt Bolagsverket. Fel firmanamn
+      kan göra avtalet svårt att göra gällande.
+    </div>
+
+    <div class="overflowwarn" id="overflowWarn"></div>
+
+    <div class="card" data-card>
+      <h2><span class="num">1</span>Arbetsgivare<span class="chev">▾</span></h2>
+      <div class="body">
+        <div class="grid g2">
+          <div class="field req"><label>Firmanamn</label><input type="text" id="agNamn"></div>
+          <div class="field req"><label>Organisationsnummer</label><input type="text" id="agOrg"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Gatuadress</label><input type="text" id="agAdress"></div>
+          <div class="field"><label>Postnummer och ort</label><input type="text" id="agPostort"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Varumärke som verksamheten bedrivs under</label><input type="text" id="agVarumarke"></div>
+          <div class="field"><label>E-post</label><input type="text" id="agEpost"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Behörig firmatecknare</label>
+            <select id="agTecknareVal">
+              <option value="Emina Ajeti|Firmatecknare">Emina Ajeti – Firmatecknare</option>
+              <option value="__annan__">Annan person…</option>
+            </select>
+          </div>
+          <div class="field"><label>Närmaste chef för arbetstagaren</label><input type="text" id="agChef" placeholder="Namn och titel"></div>
+        </div>
+        <div class="grid g2" id="tecknareAnnanWrap" style="margin-top:12px;display:none">
+          <div class="field"><label>Firmatecknarens namn</label><input type="text" id="agTecknareNamn"></div>
+          <div class="field"><label>Titel</label><input type="text" id="agTecknareTitel"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-card>
+      <h2><span class="num">2</span>Arbetstagare<span class="chev">▾</span></h2>
+      <div class="body">
+        <div class="grid g2">
+          <div class="field req"><label>Fullständigt namn</label><input type="text" id="atNamn" placeholder="Förnamn Efternamn"></div>
+          <div class="field req"><label>Personnummer</label><input type="text" id="atPnr" placeholder="ÅÅÅÅMMDD-XXXX"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Gatuadress</label><input type="text" id="atAdress"></div>
+          <div class="field"><label>Postnummer och ort</label><input type="text" id="atPostort"></div>
+        </div>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="field"><label>Telefon</label><input type="text" id="atTel"></div>
+          <div class="field"><label>E-post</label><input type="text" id="atEpost"></div>
+          <div class="field"><label>Anställningsnummer</label><input type="text" id="atAnstNr"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-card>
+      <h2><span class="num">3</span>Anställningen<span class="chev">▾</span></h2>
+      <div class="body">
+        <div class="grid g2">
+          <div class="field req"><label>Anställningsform</label>
+            <select id="anForm">
+              <option value="prov">Provanställning</option>
+              <option value="tillsvidare">Tillsvidareanställning</option>
+            </select>
+          </div>
+          <div class="field" id="provManWrap"><label>Provanställningens längd</label>
+            <select id="anProvMan">
+              <option value="1">1 månad</option><option value="2">2 månader</option>
+              <option value="3">3 månader</option><option value="4">4 månader</option>
+              <option value="5">5 månader</option><option value="6" selected>6 månader</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field req"><label>Tillträdesdag</label><input type="date" id="anTilltrade"></div>
+          <div class="field"><label>Omfattning</label><input type="text" id="anOmfattning"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field req"><label>Befattning</label>
+            <select id="anBefattning">
+              <option>Företagssäljare B2B</option>
+              <option>Account Manager</option>
+              <option>Key Account Manager</option>
+              <option>Teamleader</option>
+              <option>Mötesbokare</option>
+              <option value="__annan__">Annan befattning…</option>
+            </select>
+          </div>
+          <div class="field" id="befAnnanWrap" style="display:none"><label>Ange befattning</label><input type="text" id="anBefAnnan"></div>
+        </div>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="field"><label>Arbetstid från</label><input type="text" id="anTidFran"></div>
+          <div class="field"><label>Arbetstid till</label><input type="text" id="anTidTill"></div>
+          <div class="field"><label>Uppsägningstid</label><input type="text" id="anUppsagning"></div>
+        </div>
+        <div class="grid" style="margin-top:12px">
+          <div class="field"><label>Arbetsplats</label><input type="text" id="anArbetsplats"></div>
+        </div>
+        <div class="grid" style="margin-top:12px">
+          <div class="field"><label>Förmåner</label><textarea id="anFormaner"></textarea></div>
+        </div>
+        <div class="grid" style="margin-top:12px">
+          <div class="field"><label>Övriga villkor <span class="hint">(valfritt — läggs in som egen paragraf)</span></label>
+            <textarea id="anOvrigt" placeholder="Lämna tomt om inget särskilt ska regleras."></textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-card>
+      <h2><span class="num">4</span>Provision<span class="chev">▾</span></h2>
+      <div class="body">
+        <div id="pkgList"></div>
+        <button class="btn small" id="btnAddPkg" type="button">+ Lägg till paket</button>
+
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line)">
+          <div class="checkrow"><input type="checkbox" id="grundlonPa" checked>
+            <span>Ta med klausul om kvalificering för grundlön / garantilön</span></div>
+          <div class="grid g2" style="margin-top:10px" id="grundlonWrap">
+            <div class="field"><label>Intjänad provision per månad (kr)</label><input type="number" id="grundlonBelopp" step="500"></div>
+            <div class="field"><label>Antal månader i följd</label><input type="number" id="grundlonMan" min="1" max="12"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card collapsed" data-card>
+      <h2><span class="num">5</span>Viten, skyddstider och tvistlösning<span class="chev">▾</span></h2>
+      <div class="body">
+        <div class="hint" style="margin-bottom:14px">Standardvärdena är valda för att klausulerna ska hålla vid en
+          rättslig prövning. Höjda belopp och längre tider ökar risken för att en domstol jämkar eller helt bortser
+          från klausulen.</div>
+        <div class="grid g2">
+          <div class="field"><label>Kundskydd – antal månader</label><input type="number" id="vKundMan"></div>
+          <div class="field"><label>Kundskydd – vite (kr)</label><input type="number" id="vKundVite" step="1000"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Rekryteringsförbud – antal månader</label><input type="number" id="vRekMan"></div>
+          <div class="field"><label>Rekryteringsförbud – vite (kr)</label><input type="number" id="vRekVite" step="1000"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Sekretessbrott – vite (kr)</label><input type="number" id="vSekVite" step="1000"></div>
+          <div class="field"><label>Konkurrenshämmande användning – vite (kr)</label><input type="number" id="vKonkVite" step="1000"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Tvistlösning</label>
+            <select id="tvist">
+              <option value="domstol">Allmän domstol – Göteborgs tingsrätt</option>
+              <option value="domstol_sthlm">Allmän domstol – Stockholms tingsrätt</option>
+              <option value="skilje">Skiljeförfarande – SCC, förenklat förfarande</option>
+            </select>
+          </div>
+          <div class="field"><label>Ort för undertecknande</label><input type="text" id="signOrt"></div>
+        </div>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="field"><label>Datum för undertecknande</label><input type="date" id="signDatum"></div>
+          <div class="field"><label>Avtalets referensnummer</label><input type="text" id="refNr" placeholder="Genereras automatiskt"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card collapsed" data-card>
+      <h2><span class="num">6</span>Sparade avtal<span class="chev">▾</span></h2>
+      <div class="body">
+        <div class="hint">Sparas lokalt i den här webbläsaren. Inget lämnar din dator.</div>
+        <div class="savedlist" id="savedList"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ PREVIEW ============ -->
+  <div class="previewcol">
+    <div class="previewhead noprint">
+      <div class="t">Förhandsgranskning</div>
+      <div class="zoomwrap">
+        <button class="btn small" id="zoomOut">−</button>
+        <span class="hint" id="zoomLabel" style="width:44px;text-align:center">70 %</span>
+        <button class="btn small" id="zoomIn">+</button>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <div id="contract"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js?v=1"></script>
+</body>
+</html>
