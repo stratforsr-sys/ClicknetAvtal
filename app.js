@@ -192,7 +192,7 @@ function render(){
     +     '<td><span class="lbl">Utbetalningsdag</span><span class="val">Den 25:e</span></td>'
     +     '<td><span class="lbl">Uppsägningstid</span><span class="val">'+esc(uppsag)+'</span></td></tr>'
     + '<tr><td colspan="3"><span class="lbl">Förmåner</span><span class="val">'+nl(or(d.anFormaner,"—"))+'</span></td></tr>'
-    + '<tr><td colspan="3"><span class="lbl">Provision</span><span class="val">Provision utgår enligt provisionsplanen i avsnitt 6. Provisionen är intjänad först när kundens faktura är till fullo betald.</span></td></tr>'
+    + '<tr><td colspan="3"><span class="lbl">Provision</span><span class="val">Provision utgår enligt provisionsplanen i avsnitt 6.</span></td></tr>'
     + '</tbody></table>'
 
     + '<div class="callout"><strong>Godkännande.</strong> Genom sina underskrifter på sista sidan bekräftar parterna att de har läst, förstått och godkänt samtliga villkor i detta avtal. Avtalet har upprättats i två likalydande exemplar, varav parterna tagit var sitt.</div>';
@@ -271,7 +271,7 @@ function render(){
     + cl(6,"Provisionsplan och intjänande",
         '<p>6.1 Provision utgår per såld och av kunden betald tjänst enligt följande plan:</p>'
       + pkgTable()
-      + '<p>6.2 <strong>Intjänande.</strong> Provisionen är intjänad först när kundens faktura är till fullo betald och betalningen registrerats hos Arbetsgivaren. Osäkra, obetalda eller bestridda fordringar ger inte rätt till provision.</p>'
+      + '<p>6.2 <strong>Intjänande.</strong> Provisionen intjänas först när kundens första faktura är till fullo betald. Detta gäller inte vid finansiering med finanspartner.</p>'
       + '<p>6.3 <strong>Utbetalningstidpunkt.</strong> Provision utbetalas den 25:e i kalendermånaden efter den månad då full betalning inkommit från kunden. Inkommer betalningen samma månad som försäljningen genomfördes, utbetalas provisionen månaden därefter.</p>'
       + '<p>6.4 Provisionen beräknas på fakturerat belopp exklusive mervärdesskatt. Vid kreditering samt vid direkta eller indirekta rabatter minskas provisionsunderlaget i motsvarande mån.</p>'
       + '<p>6.5 Upphör anställningen beräknas provisionen på faktisk fakturering och betalning avseende affärer som Arbetstagaren genererat fram till och med sista anställningsdagen. Slutlig utbetalning sker när samtliga mellanhavanden mellan parterna är reglerade.</p>'
