@@ -271,11 +271,11 @@ function render(){
     + cl(6,"Provisionsplan och intjänande",
         '<p>6.1 Provision utgår per såld och av kunden betald tjänst enligt följande plan:</p>'
       + pkgTable()
-      + '<p>6.2 <strong>Intjänande.</strong> Provisionen intjänas först när kundens första faktura är till fullo betald. Detta gäller inte vid finansiering med finanspartner.</p>'
+      + '<p>6.2 <strong>Intjänande.</strong> Provisionen är intjänad först när kundens första faktura är till fullo betald och betalningen registrerats hos Arbetsgivaren. Osäkra, obetalda eller bestridda fordringar ger inte rätt till provision. Detta gäller inte vid finansiering med Arbetsgivarens finanspartner.</p>'
       + '<p>6.3 <strong>Utbetalningstidpunkt.</strong> Provision utbetalas den 25:e i kalendermånaden efter den månad då full betalning inkommit från kunden. Inkommer betalningen samma månad som försäljningen genomfördes, utbetalas provisionen månaden därefter.</p>'
       + '<p>6.4 Provisionen beräknas på fakturerat belopp exklusive mervärdesskatt. Vid kreditering samt vid direkta eller indirekta rabatter minskas provisionsunderlaget i motsvarande mån.</p>'
       + '<p>6.5 Upphör anställningen beräknas provisionen på faktisk fakturering och betalning avseende affärer som Arbetstagaren genererat fram till och med sista anställningsdagen. Slutlig utbetalning sker när samtliga mellanhavanden mellan parterna är reglerade.</p>'
-      + '<p>6.6 Arbetsgivaren äger rätt att ändra provisionsplanen för framtida försäljning genom skriftligt meddelande till Arbetstagaren med minst en (1) månads varsel. Ändringen påverkar inte provision som redan är intjänad.</p>');
+      + '<p>6.6 <strong>Ändring av provisionen.</strong> Arbetsgivaren äger rätt att ensidigt ändra provisionsplanen, provisionssatserna och de enskilda paketens provisionsvärden för framtida försäljning genom skriftligt meddelande till Arbetstagaren med minst en (1) månads varsel. Ändringen påverkar inte provision som redan är intjänad.</p>');
   pages.push(pageWrap(p4, true, metaTop));
 
   /* ---------- PAGE 5: 7–9 ---------- */
@@ -283,7 +283,7 @@ function render(){
     + cl(7,"Återkrav och kvittning",
         '<p>7.1 <strong>Ångerrätt.</strong> Utnyttjar kunden sin ångerrätt ska hela den provision som utbetalats för affären återbetalas i sin helhet.</p>'
       + '<p>7.2 Detsamma gäller om kundavtalet annulleras, hävs eller återkallas, om det visar sig ogiltigt, eller om affären grundats på vilseledande information eller på annat sätt strider mot Arbetsgivarens policy.</p>'
-      + '<p>7.3 Vid felaktigt utbetald ersättning har Arbetsgivaren rätt att återkräva beloppet jämte dröjsmålsränta enligt räntelagen (1975:635).</p>'
+      + '<p>7.3 Vid felaktigt utbetald ersättning har Arbetsgivaren rätt att återkräva beloppet.</p>'
       + '<p>7.4 <strong>Kvittning.</strong> Kvittning mot Arbetstagarens innestående ersättning får ske endast i enlighet med lagen (1970:215) om arbetsgivares kvittningsrätt och efter skriftlig underrättelse till Arbetstagaren.</p>')
     + cl(8,"Förmåner",
         '<p>8.1 Följande förmåner gäller för anställningen:</p><p>'+nl(or(d.anFormaner,"Inga särskilda förmåner har avtalats."))+'</p>'
