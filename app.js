@@ -188,7 +188,7 @@ function render(){
     + '<tr><td><span class="lbl">Arbetsplats</span><span class="val">'+esc(or(d.anArbetsplats,""))+'</span></td>'
     +     '<td><span class="lbl">Omfattning</span><span class="val">'+esc(or(d.anOmfattning,"100 %"))+'</span></td>'
     +     '<td><span class="lbl">Ordinarie arbetstid</span><span class="val">'+esc(or(d.anTidFran,"08:00"))+'–'+esc(or(d.anTidTill,"17:00"))+'</span></td></tr>'
-    + '<tr><td><span class="lbl">Ersättning</span><span class="val">Ingen garantilön — endast provision</span></td>'
+    + '<tr><td><span class="lbl">Ersättning</span><span class="val">Provision</span></td>'
     +     '<td><span class="lbl">Utbetalningsdag</span><span class="val">Den 25:e</span></td>'
     +     '<td><span class="lbl">Uppsägningstid</span><span class="val">'+esc(uppsag)+'</span></td></tr>'
     + '<tr><td colspan="3"><span class="lbl">Förmåner</span><span class="val">'+nl(or(d.anFormaner,"—"))+'</span></td></tr>'
