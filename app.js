@@ -36,7 +36,7 @@ var DEFAULTS = {
   anBefattning:"Företagssäljare B2B", anBefAnnan:"",
   anTidFran:"08:00", anTidTill:"17:00", anUppsagning:"",
   anArbetsplats:"Stigs Center, Göteborg",
-  anFormaner:"Tjänstedator och hörlurar tillhandahålls av Arbetsgivaren.\nBil mot provisionsavdrag i de fall bilen inte används i tjänsten.",
+  anFormaner:"Tjänstedator och hörlurar tillhandahålls av Arbetsgivaren.",
   anOvrigt:"",
   grundlonPa:true, grundlonBelopp:25000, grundlonMan:2,
   vKundMan:12, vKundVite:20000, vRekMan:12, vRekVite:10000, vSekVite:30000, vKonkVite:50000,
@@ -215,7 +215,7 @@ function render(){
     + '<div class="toc">'
       + tocRow(1,"Avtalets parter och giltighet") + tocRow(2,"Anställningsform och anställningstid")
       + tocRow(3,"Befattning och ansvarsområde") + tocRow(4,"Arbetsplats och arbetstid")
-      + tocRow(5,"Ersättning") + tocRow(6,"Provisionsplan och intjänande")
+      + tocRow(5,"Ersättning och semester") + tocRow(6,"Provisionsplan och intjänande")
       + tocRow(7,"Återkrav och kvittning") + tocRow(8,"Förmåner")
       + tocRow(9,"Anställningens upphörande") + tocRow(10,"Sekretess")
       + tocRow(11,"Kundskydd efter anställningen") + tocRow(12,"Förbud mot värvning av personal")
@@ -258,15 +258,16 @@ function render(){
   var grundlonTxt = "";
   if(d.grundlonPa){
     var gm = Number(d.grundlonMan)||2, gb = Number(d.grundlonBelopp)||25000;
-    grundlonTxt = '<p>5.5 <strong>Kvalificering för grundlön.</strong> Har Arbetstagaren under '+ordman(gm)+' på varandra följande kalendermånader tjänat in provision om lägst '+kr(gb)+' per månad, är Arbetstagaren kvalificerad att begära en ändrad ersättningsmodell med grundlön eller garantilön.</p>'
-      + '<p>5.6 En sådan begäran ska framställas skriftligen. Parterna ska därefter inom trettio (30) dagar träffa en skriftlig tilläggsöverenskommelse om den nya ersättningsmodellen, som anger grundlönens storlek, hur den samverkar med provisionen samt från vilken tidpunkt den gäller. Ändringen får verkan först från den tidpunkt som anges i tilläggsöverenskommelsen.</p>';
+    grundlonTxt = '<p>5.6 <strong>Kvalificering för grundlön.</strong> Har Arbetstagaren under '+ordman(gm)+' på varandra följande kalendermånader tjänat in provision om lägst '+kr(gb)+' per månad, är Arbetstagaren kvalificerad att begära en ändrad ersättningsmodell med grundlön eller garantilön.</p>'
+      + '<p>5.7 En sådan begäran ska framställas skriftligen. Parterna ska därefter inom trettio (30) dagar träffa en skriftlig tilläggsöverenskommelse om den nya ersättningsmodellen, som anger grundlönens storlek, hur den samverkar med provisionen samt från vilken tidpunkt den gäller. Ändringen får verkan först från den tidpunkt som anges i tilläggsöverenskommelsen.</p>';
   }
   var p4 = '<h2 class="sec">Ersättning</h2>'
-    + cl(5,"Ersättning",
+    + cl(5,"Ersättning och semester",
         '<p>5.1 Ersättning utgår uteslutande i form av provision. Någon garantilön eller grundlön utgår inte, om annat inte uttryckligen och skriftligen överenskommits mellan parterna.</p>'
       + '<p>5.2 Provisionen utgår enligt den provisionsplan som framgår av avsnitt 6 och gäller försäljning av samtliga tjänster i Arbetsgivarens utbud.</p>'
       + '<p>5.3 Utbetalning sker den 25:e i månaden. Infaller den 25:e på en lördag, söndag eller annan helgdag sker utbetalning närmast föregående bankdag.</p>'
-      + '<p>5.4 Semester och semesterersättning regleras enligt semesterlagen (1977:480) samt genom separat överenskommelse mellan parterna.</p>'
+      + '<p>5.4 <strong>Semester.</strong> Arbetstagaren har rätt till semester enligt semesterlagen (1977:480). Semesteråret löper från den 1 april till den 31 mars, och motsvarande period närmast dessförinnan utgör intjänandeår. Semesterledigheten uppgår till tjugofem (25) semesterdagar per fullt semesterår. Semesterns förläggning bestäms efter samråd mellan parterna i enlighet med semesterlagens bestämmelser.</p>'
+      + '<p>5.5 <strong>Semesterlön och semesterersättning.</strong> Eftersom ersättningen utgörs uteslutande av rörlig lön beräknas semesterlönen enligt procentregeln i 16 b § semesterlagen och uppgår till tolv (12) procent av den semesterlönegrundande provision som Arbetstagaren tjänat in under intjänandeåret. Semesterlönen betalas ut i samband med att Arbetstagaren tar ut sin semester, vid den ordinarie löneutbetalning som infaller närmast efter semesteruttaget. Upphör anställningen utbetalas intjänad men inte uttagen semesterersättning i samband med slutlönen, dock senast en (1) månad efter anställningens upphörande.</p>'
       + grundlonTxt)
     + cl(6,"Provisionsplan och intjänande",
         '<p>6.1 Provision utgår per såld och av kunden betald tjänst enligt följande plan:</p>'
