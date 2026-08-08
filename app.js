@@ -247,12 +247,18 @@ function render(){
       + '<p>3.2 I befattningen ingår att självständigt driva kundanskaffning, marknadsföra och sälja Arbetsgivarens tjänsteutbud, bygga långsiktiga affärsrelationer samt genomföra systematisk uppföljning och dokumentation i Arbetsgivarens CRM-system.</p>'
       + '<p>3.3 Arbetstagaren ansvarar för att försäljning sker till kreditgodkända kunder, att kundavtal upprättas korrekt och fullständigt samt att kundvård bedrivs inom ramen för Arbetsgivarens försäljnings- och företagspolicy.</p>'
       + '<p>3.4 Arbetet utförs enligt Arbetsgivarens fastställda säljstrategi och under ledning av närmaste chef'+(or(d.agChef,"") ? ', '+esc(d.agChef) : '')+'. Arbetsgivaren äger rätt att inom ramen för Arbetstagarens arbetsskyldighet justera arbetsuppgifterna.</p>')
+    ;
+  pages.push(pageWrap(p3, true, metaTop));
+
+  /* ---------- PAGE 4: 4 ---------- */
+  var p3b = '<h2 class="sec">Arbetsplats och arbetstid</h2>'
     + cl(4,"Arbetsplats och arbetstid",
         '<p>4.1 Arbetsplats är '+esc(or(d.anArbetsplats,"—"))+'.</p>'
       + '<p>4.2 Anställningens omfattning är '+esc(or(d.anOmfattning,"100 %"))+'. Ordinarie arbetstid är förlagd måndag till fredag mellan klockan '+esc(or(d.anTidFran,"08:00"))+' och '+esc(or(d.anTidTill,"17:00"))+'.</p>'
       + '<p>4.3 Arbetsgivaren förbehåller sig rätten att fastställa arbetsort samt att vid behov tillfälligt eller permanent förlägga tjänstgöringen till annan plats inom ramen för Arbetstagarens arbetsskyldighet.</p>'
-      + '<p>4.4 Frånvaro ska anmälas till närmaste chef i enlighet med Arbetsgivarens rutiner.</p>');
-  pages.push(pageWrap(p3, true, metaTop));
+      + '<p>4.4 Frånvaro ska anmälas till närmaste chef i enlighet med Arbetsgivarens rutiner.</p>'
+      + '<p>4.5 <strong>Övertid och mertid.</strong> Arbetet utförs inom den ordinarie arbetstid som anges i punkt 4.2. Övertids- och mertidsarbete ingår inte i anställningen och ska inte utföras utan att närmaste chef i förväg skriftligen godkänt det. Eftersom ersättningen utgörs uteslutande av provision enligt avsnitt 5 utgår ingen särskild övertids- eller mertidsersättning. Arbetsgivaren ansvarar för att bestämmelserna om dygnsvila, veckovila och sammanlagd arbetstid i arbetstidslagen (1982:673) iakttas.</p>');
+  pages.push(pageWrap(p3b, true, metaTop));
 
   /* ---------- PAGE 4: 5 ---------- */
   var grundlonTxt = "";
@@ -402,7 +408,7 @@ function render(){
 
   var ovrigtSec = or(d.anOvrigt,"") ? cl(24,"Övriga villkor",'<p>'+nl(d.anOvrigt)+'</p>') : "";
 
-  var p9 = '<h2 class="sec">Viten, tvistlösning och underskrifter</h2>'
+  var p9 = '<h2 class="sec">Viten och tvistlösning</h2>'
     + cl(21,"Sammanställning av viten",
         '<p>21.1 Följande viten gäller enligt detta avtal:</p>'
       + '<table class="grid2"><thead><tr><th style="width:46%">Överträdelse</th><th>Beräkning</th><th style="width:20%;text-align:right">Vite</th></tr></thead><tbody>'
@@ -411,7 +417,11 @@ function render(){
     + cl(22,"Tvistlösning och tillämplig lag",
         '<p>22.1 Tvist med anledning av detta avtal ska i första hand lösas genom förhandling mellan parterna.</p>'
       + tvistTxt
-      + '<p>22.3 Svensk rätt ska tillämpas på avtalet, däribland lagen (1982:80) om anställningsskydd, lagen (2018:558) om företagshemligheter, dataskyddsförordningen (EU) 2016/679 med kompletterande svensk dataskyddslagstiftning samt brottsbalken.</p>')
+      + '<p>22.3 Svensk rätt ska tillämpas på avtalet, däribland lagen (1982:80) om anställningsskydd, lagen (2018:558) om företagshemligheter, dataskyddsförordningen (EU) 2016/679 med kompletterande svensk dataskyddslagstiftning samt brottsbalken.</p>'
+      + '<p>22.4 <strong>Kollektivavtal.</strong> Arbetsgivaren är inte bunden av något kollektivavtal. Blir Arbetsgivaren framdeles bunden av kollektivavtal som omfattar anställningen, gäller det avtalets villkor framför detta avtal i den mån villkoren strider mot varandra. Arbetstagaren ska underrättas skriftligen om så sker.</p>')
+    ;
+
+  var p10 = '<h2 class="sec">Avtalets omfattning och underskrifter</h2>'
     + cl(23,"Avtalets omfattning och ändringar",
         '<p>23.1 Detta avtal utgör den fullständiga överenskommelsen mellan parterna avseende anställningen. Tidigare muntliga eller skriftliga överenskommelser som strider mot detta avtal upphör att gälla vid undertecknandet.</p>'
       + '<p>23.2 Ändringar och tillägg ska för att vara giltiga vara skriftliga och undertecknade av båda parter.</p>'
@@ -430,11 +440,12 @@ function render(){
     + '</div>';
 
   var ovrigtLong = or(d.anOvrigt,"").length > 180;
+  pages.push(pageWrap(p9, true, metaTop));
   if(ovrigtLong){
-    pages.push(pageWrap(p9, true, metaTop));
-    pages.push(pageWrap('<h2 class="sec">Övriga villkor och underskrifter</h2>' + ovrigtSec + signBlock, true, metaTop));
+    pages.push(pageWrap(p10 + ovrigtSec, true, metaTop));
+    pages.push(pageWrap('<h2 class="sec">Underskrifter</h2>' + signBlock, true, metaTop));
   } else {
-    pages.push(pageWrap(p9 + ovrigtSec + signBlock, true, metaTop));
+    pages.push(pageWrap(p10 + ovrigtSec + signBlock, true, metaTop));
   }
 
   $("contract").innerHTML = pages.join("");
