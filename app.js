@@ -289,12 +289,19 @@ function render(){
       + pkgTable()
       + '<p>6.2 <strong>Intjänande.</strong> Provisionen är intjänad först när kundens första faktura är till fullo betald och betalningen registrerats hos Arbetsgivaren. Osäkra, obetalda eller bestridda fordringar ger inte rätt till provision. Detta gäller inte vid finansiering med Arbetsgivarens finanspartner.</p>'
       + '<p>6.3 <strong>Utbetalningstidpunkt.</strong> Provision utbetalas den 25:e i kalendermånaden efter den månad då full betalning inkommit från kunden. Inkommer betalningen samma månad som försäljningen genomfördes, utbetalas provisionen månaden därefter.</p>'
-      + '<p>6.4 Provisionen beräknas på fakturerat belopp exklusive mervärdesskatt. Vid kreditering samt vid direkta eller indirekta rabatter minskas provisionsunderlaget i motsvarande mån.</p>'
-      + '<p>6.5 Upphör anställningen beräknas provisionen på faktisk fakturering och betalning avseende affärer som Arbetstagaren genererat fram till och med sista anställningsdagen. Slutlig utbetalning sker när samtliga mellanhavanden mellan parterna är reglerade.</p>'
-      + '<p>6.6 <strong>Ändring av provisionen.</strong> Arbetsgivaren äger rätt att ensidigt ändra provisionsplanen, provisionssatserna och de enskilda paketens provisionsvärden för framtida försäljning genom skriftligt meddelande till Arbetstagaren med minst en (1) månads varsel. Ändringen påverkar inte provision som redan är intjänad.</p>');
+      + '<p>6.4 Provisionen beräknas på fakturerat belopp exklusive mervärdesskatt. Vid kreditering samt vid direkta eller indirekta rabatter minskas provisionsunderlaget i motsvarande mån.</p>');
   pages.push(pageWrap(p4b, true, metaTop));
 
-  /* ---------- PAGE 7: 7–9 ---------- */
+  /* ---------- PAGE 7: slutavräkning (forts. avsnitt 6) ---------- */
+  var p4c = '<h2 class="sec">Slutavräkning vid anställningens upphörande</h2>'
+    + cl(6,"Provisionsplan och intjänande, forts.",
+        '<p>6.5 <strong>Slutavräkning.</strong> Upphör anställningen, oavsett anledning och oavsett vilken part som föranlett upphörandet, beräknas provisionen på faktisk fakturering och betalning avseende affärer som Arbetstagaren genererat till och med sista anställningsdagen.</p>'
+      + '<p>6.6 <strong>Granskning av affärerna.</strong> Före slutlig utbetalning har Arbetsgivaren rätt att granska samtliga affärer som Arbetstagaren genererat. Granskningen avser att affären är korrekt registrerad och dokumenterad, att kunden inte har utnyttjat sin ångerrätt eller reklamerat avtalet, att tjänsten är korrekt levererad och driftsatt, att de utfästelser som lämnats till kunden ryms inom Arbetsgivarens utbud, prismodell och leveransförmåga samt att Arbetsgivarens försäljnings-, dokumentations- och kvalitetsrutiner har följts.</p>'
+      + '<p>6.7 <strong>Innehållande under granskningen.</strong> Provision och påslag enligt provisionstrappan avseende affärer som omfattas av granskningen innehålls till dess att granskningen av respektive affär är avslutad. Granskningen ska påbörjas utan dröjsmål efter sista anställningsdagen och bedrivas skyndsamt. Utbetalning sker affär för affär vid närmast följande ordinarie utbetalningstillfälle enligt punkt 6.3 efter det att granskningen av affären avslutats utan anmärkning, dock senast nittio (90) dagar efter sista anställningsdagen. Har kundens ångerfrist inte löpt ut eller är en reklamation avseende en viss affär inte slutligt avgjord vid den tidpunkten, innehålls provisionen för den affären till dess fristen löpt ut respektive reklamationen avgjorts. Innehållandet omfattar inte semesterersättning enligt punkt 5.5. För kvittning mot innestående ersättning gäller punkt 7.4.</p>'
+      + '<p>6.8 <strong>Ändring av provisionen.</strong> Arbetsgivaren äger rätt att ensidigt ändra provisionsplanen, provisionssatserna och de enskilda paketens provisionsvärden för framtida försäljning genom skriftligt meddelande till Arbetstagaren med minst en (1) månads varsel. Ändringen påverkar inte provision som redan är intjänad.</p>');
+  pages.push(pageWrap(p4c, true, metaTop));
+
+  /* ---------- PAGE 8: 7–9 ---------- */
   var p5 = '<h2 class="sec">Återkrav, förmåner och upphörande</h2>'
     + cl(7,"Återkrav och kvittning",
         '<p>7.1 <strong>Ångerrätt.</strong> Utnyttjar kunden sin ångerrätt ska hela den provision som utbetalats för affären återbetalas i sin helhet.</p>'
@@ -314,7 +321,7 @@ function render(){
       + '<p>9.'+(prov?5:4)+' Avskedande kan ske enligt 18 § lagen (1982:80) om anställningsskydd om Arbetstagaren grovt åsidosatt sina åligganden mot Arbetsgivaren.</p>');
   pages.push(pageWrap(p5, true, metaTop));
 
-  /* ---------- PAGE 8: 10–12 ---------- */
+  /* ---------- PAGE 9: 10–12 ---------- */
   var p6 = '<h2 class="sec">Sekretess och kundskydd</h2>'
     + cl(10,"Sekretess",
         '<p>10.1 Med konfidentiell information avses all information som Arbetstagaren tar del av genom anställningen och vars obehöriga användning kan medföra skada för Arbetsgivaren, oavsett om informationen lämnas muntligen, skriftligen, grafiskt, digitalt eller i annan form. Hit hör bland annat kundregister, prospektlistor, avtalsvillkor, prismodeller, provisionsvillkor, försäljningsstrategier, leverantörsavtal och interna arbetsrutiner.</p>'
@@ -333,7 +340,7 @@ function render(){
       + '<p>12.3 Varje dokumenterad överträdelse medför ett vite om '+kr(rekVite)+'.</p>');
   pages.push(pageWrap(p6, true, metaTop));
 
-  /* ---------- PAGE 9: 13–16 ---------- */
+  /* ---------- PAGE 10: 13–16 ---------- */
   var p7 = '<h2 class="sec">Lojalitet och försäljningsansvar</h2>'
     + cl(13,"Bisysslor",
         '<p>13.1 Arbetstagaren får inte utan Arbetsgivarens skriftliga förhandsgodkännande bedriva egen näringsverksamhet eller inneha anställning, uppdrag eller konsultuppdrag vid sidan av anställningen.</p>'
@@ -354,7 +361,7 @@ function render(){
       + '<p>16.3 Arbetstagaren ansvarar i sådana fall även för Arbetsgivarens styrkta merkostnader för rättelse och kundsupport. Ansvar utöver återbetalning av provisionen förutsätter att Arbetstagaren agerat uppsåtligen eller grovt vårdslöst.</p>');
   pages.push(pageWrap(p7, true, metaTop));
 
-  /* ---------- PAGE 10: 17–20 ---------- */
+  /* ---------- PAGE 11: 17–20 ---------- */
   var p8 = '<h2 class="sec">IT-säkerhet, avslut och rättigheter</h2>'
     + cl(17,"IT-säkerhet och systemanvändning",
         '<p>17.1 Arbetstagaren får endast använda Arbetsgivarens system, konton och digitala resurser för arbetsrelaterade ändamål.</p>'
@@ -377,7 +384,7 @@ function render(){
       + '<p>20.2 Professionella nätverkskontakter och kunduppgifter som etablerats i tjänsten utgör Arbetsgivarens affärsinformation. Arbetstagaren får inte efter anställningens upphörande exportera eller överta sådana kontaktuppgifter i syfte att bearbeta dem kommersiellt.</p>');
   pages.push(pageWrap(p8, true, metaTop));
 
-  /* ---------- PAGE 11: 21–23(24) + underskrifter ---------- */
+  /* ---------- PAGE 12: 21–23(24) + underskrifter ---------- */
   var tvistTxt;
   if(d.tvist === "skilje"){
     tvistTxt = '<p>22.2 Leder förhandling inte till en lösning inom trettio (30) dagar ska tvisten slutligt avgöras genom skiljedom enligt Regler för Förenklat Skiljeförfarande vid Stockholms Handelskammares Skiljedomsinstitut. Säte för förfarandet är Stockholm.</p>';
