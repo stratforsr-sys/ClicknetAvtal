@@ -271,7 +271,18 @@ function render(){
       + grundlonTxt);
   pages.push(pageWrap(p4, true, metaTop));
 
-  /* ---------- PAGE 5: 6 ---------- */
+  /* ---------- PAGE 5: provisionstrappan (forts. avsnitt 5) ---------- */
+  var tn = d.grundlonPa ? 8 : 6;
+  var p4t = '<h2 class="sec">Provisionstrappa</h2>'
+    + cl(5,"Ersättning och semester, forts.",
+        '<p>5.'+tn+' <strong>Provisionstrappa.</strong> Utöver provisionen enligt avsnitt 6 utgår ett påslag per affär enligt nedanstående trappa. Antalet affärer räknas per kalendermånad, och räknaren nollställs vid varje månadsskifte.</p>'
+      + trappaTable(tn+2)
+      + '<p>5.'+(tn+1)+' <strong>Beräkning.</strong> Påslaget beräknas på samtliga affärer som Arbetstagaren genomfört under kalendermånaden, även de affärer som ligger före den nivå som uppnåtts. Endast den högsta uppnådda nivån tillämpas och nivåernas belopp läggs inte samman. En affär räknas in i trappan enligt samma intjänandeprincip som gäller för provisionen enligt punkt 6.2, det vill säga först när kundens första faktura är till fullo betald och betalningen registrerats hos Arbetsgivaren.</p>'
+      + '<p>5.'+(tn+2)+' <strong>Trettio affärer eller fler.</strong> Uppnår Arbetstagaren trettio (30) affärer eller fler under en kalendermånad ska Arbetstagaren och närmaste chef hålla ett särskilt möte för att fastställa påslaget för den månaden. Träffad överenskommelse ska dokumenteras skriftligen och undertecknas av båda parter. Träffas ingen sådan överenskommelse utgår påslag enligt nivån tjugo (20) affärer.</p>'
+      + '<p>5.'+(tn+3)+' <strong>Utbetalning och återkrav.</strong> Påslaget utbetalas tillsammans med provisionen enligt punkt 6.3. Återgår en affär av skäl som anges i avsnitt 7 räknas kalendermånadens antal affärer om, varvid påslaget justeras till den nivå som därefter gäller och för mycket utbetalt belopp får återkrävas enligt punkt 7.3.</p>');
+  pages.push(pageWrap(p4t, true, metaTop));
+
+  /* ---------- PAGE 6: 6 ---------- */
   var p4b = '<h2 class="sec">Provisionsplan</h2>'
     + cl(6,"Provisionsplan och intjänande",
         '<p>6.1 Provision utgår per såld och av kunden betald tjänst enligt följande plan:</p>'
@@ -283,7 +294,7 @@ function render(){
       + '<p>6.6 <strong>Ändring av provisionen.</strong> Arbetsgivaren äger rätt att ensidigt ändra provisionsplanen, provisionssatserna och de enskilda paketens provisionsvärden för framtida försäljning genom skriftligt meddelande till Arbetstagaren med minst en (1) månads varsel. Ändringen påverkar inte provision som redan är intjänad.</p>');
   pages.push(pageWrap(p4b, true, metaTop));
 
-  /* ---------- PAGE 6: 7–9 ---------- */
+  /* ---------- PAGE 7: 7–9 ---------- */
   var p5 = '<h2 class="sec">Återkrav, förmåner och upphörande</h2>'
     + cl(7,"Återkrav och kvittning",
         '<p>7.1 <strong>Ångerrätt.</strong> Utnyttjar kunden sin ångerrätt ska hela den provision som utbetalats för affären återbetalas i sin helhet.</p>'
@@ -303,7 +314,7 @@ function render(){
       + '<p>9.'+(prov?5:4)+' Avskedande kan ske enligt 18 § lagen (1982:80) om anställningsskydd om Arbetstagaren grovt åsidosatt sina åligganden mot Arbetsgivaren.</p>');
   pages.push(pageWrap(p5, true, metaTop));
 
-  /* ---------- PAGE 7: 10–12 ---------- */
+  /* ---------- PAGE 8: 10–12 ---------- */
   var p6 = '<h2 class="sec">Sekretess och kundskydd</h2>'
     + cl(10,"Sekretess",
         '<p>10.1 Med konfidentiell information avses all information som Arbetstagaren tar del av genom anställningen och vars obehöriga användning kan medföra skada för Arbetsgivaren, oavsett om informationen lämnas muntligen, skriftligen, grafiskt, digitalt eller i annan form. Hit hör bland annat kundregister, prospektlistor, avtalsvillkor, prismodeller, provisionsvillkor, försäljningsstrategier, leverantörsavtal och interna arbetsrutiner.</p>'
@@ -322,7 +333,7 @@ function render(){
       + '<p>12.3 Varje dokumenterad överträdelse medför ett vite om '+kr(rekVite)+'.</p>');
   pages.push(pageWrap(p6, true, metaTop));
 
-  /* ---------- PAGE 8: 13–16 ---------- */
+  /* ---------- PAGE 9: 13–16 ---------- */
   var p7 = '<h2 class="sec">Lojalitet och försäljningsansvar</h2>'
     + cl(13,"Bisysslor",
         '<p>13.1 Arbetstagaren får inte utan Arbetsgivarens skriftliga förhandsgodkännande bedriva egen näringsverksamhet eller inneha anställning, uppdrag eller konsultuppdrag vid sidan av anställningen.</p>'
@@ -343,7 +354,7 @@ function render(){
       + '<p>16.3 Arbetstagaren ansvarar i sådana fall även för Arbetsgivarens styrkta merkostnader för rättelse och kundsupport. Ansvar utöver återbetalning av provisionen förutsätter att Arbetstagaren agerat uppsåtligen eller grovt vårdslöst.</p>');
   pages.push(pageWrap(p7, true, metaTop));
 
-  /* ---------- PAGE 9: 17–20 ---------- */
+  /* ---------- PAGE 10: 17–20 ---------- */
   var p8 = '<h2 class="sec">IT-säkerhet, avslut och rättigheter</h2>'
     + cl(17,"IT-säkerhet och systemanvändning",
         '<p>17.1 Arbetstagaren får endast använda Arbetsgivarens system, konton och digitala resurser för arbetsrelaterade ändamål.</p>'
@@ -366,7 +377,7 @@ function render(){
       + '<p>20.2 Professionella nätverkskontakter och kunduppgifter som etablerats i tjänsten utgör Arbetsgivarens affärsinformation. Arbetstagaren får inte efter anställningens upphörande exportera eller överta sådana kontaktuppgifter i syfte att bearbeta dem kommersiellt.</p>');
   pages.push(pageWrap(p8, true, metaTop));
 
-  /* ---------- PAGE 10: 21–23(24) + underskrifter ---------- */
+  /* ---------- PAGE 11: 21–23(24) + underskrifter ---------- */
   var tvistTxt;
   if(d.tvist === "skilje"){
     tvistTxt = '<p>22.2 Leder förhandling inte till en lösning inom trettio (30) dagar ska tvisten slutligt avgöras genom skiljedom enligt Regler för Förenklat Skiljeförfarande vid Stockholms Handelskammares Skiljedomsinstitut. Säte för förfarandet är Stockholm.</p>';
@@ -436,6 +447,25 @@ function tocRow(n,t){ return '<div><span>'+n+'</span>'+esc(t)+'</div>'; }
 function cl(n,title,body){
   return '<h3 class="cl"><span class="n">'+n+'.</span>'+esc(title)+'</h3><div class="tight">'+body+'</div>';
 }
+var TRAPPA = [
+  {fran:5,  till:9,  pasl:200},
+  {fran:10, till:14, pasl:500},
+  {fran:15, till:19, pasl:700},
+  {fran:20, till:29, pasl:1000}
+];
+function trappaTable(motesNr){
+  var rows = "";
+  TRAPPA.forEach(function(t){
+    rows += '<tr><td>' + t.fran + '\u2013' + t.till + ' aff\u00e4rer</td>'
+          + '<td class="num">' + kr(t.pasl) + '</td></tr>';
+  });
+  rows += '<tr><td>30 aff\u00e4rer eller fler</td>'
+        + '<td class="num">Fastst\u00e4lls enligt punkt 5.' + motesNr + '</td></tr>';
+  return '<table class="grid2"><thead><tr><th style="width:58%">Antal aff\u00e4rer per kalenderm\u00e5nad</th>'
+    + '<th style="width:42%;text-align:right">P\u00e5slag per aff\u00e4r</th></tr></thead><tbody>'
+    + rows + '</tbody></table>';
+}
+
 function pkgTable(){
   var rows = "";
   paket.forEach(function(p){
