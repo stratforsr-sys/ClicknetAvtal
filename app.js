@@ -32,6 +32,7 @@ var DEFAULTS = {
   agPostort:"515 35 Viskafors", agVarumarke:"ClickneT", agEpost:"info@clicknet.se",
   agTecknareVal:"Emina Ajeti|Firmatecknare", agTecknareNamn:"", agTecknareTitel:"", agChef:"",
   atNamn:"", atPnr:"", atAdress:"", atPostort:"", atTel:"", atEpost:"", atAnstNr:"",
+  atBank:"", atClearing:"", atKonto:"",
   anForm:"prov", anProvMan:"6", anTilltrade:"", anOmfattning:"100 %",
   anBefattning:"Företagssäljare B2B", anBefAnnan:"",
   anTidFran:"08:00", anTidTill:"17:00", anUppsagning:"",
@@ -49,7 +50,8 @@ var DEFAULTS = {
 };
 
 var FIELDS = ["agNamn","agOrg","agAdress","agPostort","agVarumarke","agEpost","agTecknareVal","agTecknareNamn",
-"agTecknareTitel","agChef","atNamn","atPnr","atAdress","atPostort","atTel","atEpost","atAnstNr","anForm",
+"agTecknareTitel","agChef","atNamn","atPnr","atAdress","atPostort","atTel","atEpost","atAnstNr",
+"atBank","atClearing","atKonto","anForm",
 "anProvMan","anTilltrade","anOmfattning","anBefattning","anBefAnnan","anTidFran","anTidTill","anUppsagning",
 "anArbetsplats","anFormaner","anOvrigt","grundlonBelopp","grundlonMan","vKundMan","vKundVite","vRekMan",
 "vRekVite","vSekVite","vKonkVite","tvist","signOrt","signDatum","refNr"];
@@ -177,6 +179,9 @@ function render(){
     + '<tr><td><span class="lbl">E-post</span><span class="val">'+esc(or(d.atEpost,""))+'</span></td>'
     +     '<td><span class="lbl">Anställningsnummer</span><span class="val">'+esc(or(d.atAnstNr,""))+'</span></td>'
     +     '<td><span class="lbl">Tillträdesdag</span><span class="val">'+esc(or(svDatum(d.anTilltrade),""))+'</span></td></tr>'
+    + '<tr><td><span class="lbl">Bank</span><span class="val">'+esc(or(d.atBank,""))+'</span></td>'
+    +     '<td><span class="lbl">Clearingnummer</span><span class="val">'+esc(or(d.atClearing,""))+'</span></td>'
+    +     '<td><span class="lbl">Kontonummer</span><span class="val">'+esc(or(d.atKonto,""))+'</span></td></tr>'
     + '</tbody></table>'
 
     + '<table class="data"><caption>Anställningen</caption><tbody>'
@@ -271,7 +276,7 @@ function render(){
     + cl(5,"Ersättning och semester",
         '<p>5.1 Ersättning utgår uteslutande i form av provision. Någon garantilön eller grundlön utgår inte, om annat inte uttryckligen och skriftligen överenskommits mellan parterna.</p>'
       + '<p>5.2 Provisionen utgår enligt den provisionsplan som framgår av avsnitt 6 och gäller försäljning av samtliga tjänster i Arbetsgivarens utbud.</p>'
-      + '<p>5.3 Utbetalning sker den 25:e i månaden. Infaller den 25:e på en lördag, söndag eller annan helgdag sker utbetalning närmast föregående bankdag.</p>'
+      + '<p>5.3 Utbetalning sker den 25:e i månaden till det bankkonto som Arbetstagaren angett på avtalets första sida. Infaller den 25:e på en lördag, söndag eller annan helgdag sker utbetalning närmast föregående bankdag. Arbetstagaren ansvarar för att utan dröjsmål skriftligen underrätta Arbetsgivaren om ändrade bankuppgifter.</p>'
       + '<p>5.4 <strong>Semester.</strong> Arbetstagaren har rätt till semester enligt semesterlagen (1977:480). Semesteråret löper från den 1 april till den 31 mars, och motsvarande period närmast dessförinnan utgör intjänandeår. Semesterledigheten uppgår till tjugofem (25) semesterdagar per fullt semesterår. Semesterns förläggning bestäms efter samråd mellan parterna i enlighet med semesterlagens bestämmelser.</p>'
       + '<p>5.5 <strong>Semesterlön och semesterersättning.</strong> Eftersom ersättningen utgörs uteslutande av rörlig lön beräknas semesterlönen enligt procentregeln i 16 b § semesterlagen och uppgår till tolv (12) procent av den semesterlönegrundande provision som Arbetstagaren tjänat in under intjänandeåret. Semesterlönen betalas ut i samband med att Arbetstagaren tar ut sin semester, vid den ordinarie löneutbetalning som infaller närmast efter semesteruttaget. Upphör anställningen utbetalas intjänad men inte uttagen semesterersättning i samband med slutlönen, dock senast en (1) månad efter anställningens upphörande.</p>'
       + grundlonTxt);
