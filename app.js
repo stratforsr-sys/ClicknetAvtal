@@ -32,7 +32,7 @@ var DEFAULTS = {
   agPostort:"515 35 Viskafors", agVarumarke:"ClickneT", agEpost:"info@clicknet.se",
   agTecknareVal:"Emina Ajeti|Firmatecknare", agTecknareNamn:"", agTecknareTitel:"", agChef:"",
   atNamn:"", atPnr:"", atAdress:"", atPostort:"", atTel:"", atEpost:"", atAnstNr:"",
-  atBank:"", atClearing:"", atKonto:"",
+  atBank:"", atClearing:"", atKonto:"", atAnhorigNamn:"", atAnhorigTel:"",
   anForm:"prov", anProvMan:"6", anTilltrade:"", anOmfattning:"100 %",
   anBefattning:"Företagssäljare B2B", anBefAnnan:"",
   anTidFran:"08:00", anTidTill:"17:00", anUppsagning:"",
@@ -51,7 +51,7 @@ var DEFAULTS = {
 
 var FIELDS = ["agNamn","agOrg","agAdress","agPostort","agVarumarke","agEpost","agTecknareVal","agTecknareNamn",
 "agTecknareTitel","agChef","atNamn","atPnr","atAdress","atPostort","atTel","atEpost","atAnstNr",
-"atBank","atClearing","atKonto","anForm",
+"atBank","atClearing","atKonto","atAnhorigNamn","atAnhorigTel","anForm",
 "anProvMan","anTilltrade","anOmfattning","anBefattning","anBefAnnan","anTidFran","anTidTill","anUppsagning",
 "anArbetsplats","anFormaner","anOvrigt","grundlonBelopp","grundlonMan","vKundMan","vKundVite","vRekMan",
 "vRekVite","vSekVite","vKonkVite","tvist","signOrt","signDatum","refNr"];
@@ -145,6 +145,8 @@ function render(){
   var ag = or(d.agNamn,"—"), agOrg = or(d.agOrg,"—"), vm = or(d.agVarumarke,"ClickneT");
   var at = or(d.atNamn,"—"), pnr = or(d.atPnr,"—");
   var uppsag = or(d.anUppsagning, prov ? "14 dagar" : "1 månad");
+  var bankClearing = [or(d.atBank,""), or(d.atClearing,"")].filter(Boolean).join(", ");
+  var anhorig = [or(d.atAnhorigNamn,""), or(d.atAnhorigTel,"")].filter(Boolean).join(", ");
   var ref = or(d.refNr, "—");
   var metaTop = 'Avtalsreferens ' + esc(ref) + '<br>' + esc(or(ag,"")) + ' &middot; ' + esc(agOrg);
 
@@ -179,9 +181,9 @@ function render(){
     + '<tr><td><span class="lbl">E-post</span><span class="val">'+esc(or(d.atEpost,""))+'</span></td>'
     +     '<td><span class="lbl">Anställningsnummer</span><span class="val">'+esc(or(d.atAnstNr,""))+'</span></td>'
     +     '<td><span class="lbl">Tillträdesdag</span><span class="val">'+esc(or(svDatum(d.anTilltrade),""))+'</span></td></tr>'
-    + '<tr><td><span class="lbl">Bank</span><span class="val">'+esc(or(d.atBank,""))+'</span></td>'
-    +     '<td><span class="lbl">Clearingnummer</span><span class="val">'+esc(or(d.atClearing,""))+'</span></td>'
-    +     '<td><span class="lbl">Kontonummer</span><span class="val">'+esc(or(d.atKonto,""))+'</span></td></tr>'
+    + '<tr><td><span class="lbl">Bank och clearingnummer</span><span class="val">'+esc(bankClearing)+'</span></td>'
+    +     '<td><span class="lbl">Kontonummer</span><span class="val">'+esc(or(d.atKonto,""))+'</span></td>'
+    +     '<td><span class="lbl">Nära anhörig</span><span class="val">'+esc(anhorig)+'</span></td></tr>'
     + '</tbody></table>'
 
     + '<table class="data"><caption>Anställningen</caption><tbody>'
