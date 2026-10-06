@@ -28,7 +28,7 @@ var LOGO = '<svg viewBox="0 0 320 84" xmlns="http://www.w3.org/2000/svg">'
 
 /* ---------------- defaults ---------------- */
 var DEFAULTS = {
-  agNamn:"ABL Invest AB", agOrg:"559552-1435", agAdress:"Viskarhultsvägen 9",
+  agNamn:"ABL Invest & Konsult AB", agOrg:"559507-3106", agAdress:"Viskarhultsvägen 9",
   agPostort:"515 35 Viskafors", agVarumarke:"ClickneT", agEpost:"info@clicknet.se",
   agTecknareVal:"Emina Ajeti|Firmatecknare", agTecknareNamn:"", agTecknareTitel:"", agChef:"",
   atNamn:"", atPnr:"", atAdress:"", atPostort:"", atTel:"", atEpost:"", atAnstNr:"",
