@@ -556,7 +556,11 @@ function renderSaved(){
 $("savedList").addEventListener("click", function(e){
   var l = e.target.getAttribute("data-load"), r = e.target.getAttribute("data-rm");
   var list = loadSaved();
-  if(l!==null){ setForm(list[+l].data); }
+  if(l!==null){
+    var sd = list[+l].data;
+    if(sd.agNamn === "ABL Invest AB"){ sd.agNamn = DEFAULTS.agNamn; sd.agOrg = DEFAULTS.agOrg; }
+    setForm(sd);
+  }
   if(r!==null){ if(confirm("Ta bort sparat avtal?")){ list.splice(+r,1); writeSaved(list); } }
 });
 $("btnSave").addEventListener("click", function(){
